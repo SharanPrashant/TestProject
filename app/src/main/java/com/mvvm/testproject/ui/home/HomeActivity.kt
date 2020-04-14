@@ -26,4 +26,9 @@ class HomeActivity : AppCompatActivity() {
             drawer_layout
         )
     }
+    fun add(a:Int , b:Int)  : Unit{
+         a+b
+
+    }
+
 }
