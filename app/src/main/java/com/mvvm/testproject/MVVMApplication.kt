@@ -25,8 +25,6 @@ class MVVMApplication : Application(), KodeinAware{
         bind() from singleton { UserRepository(instance(),instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
     }
-fun add(a:Int, b: Int ) : Int{
-    return a+b
-}
+
 
 }
