@@ -14,7 +14,6 @@ import com.mvvm.testproject.util.hide
 import com.mvvm.testproject.util.show
 import com.mvvm.testproject.util.snackBar
 import kotlinx.android.synthetic.main.activity_login.*
-import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
@@ -43,7 +42,7 @@ class LoginActivity : AppCompatActivity() , AuthListener, KodeinAware{
 
         viewModel.getLoggedInUser().observe(this, Observer { user ->
             if(user != null){
-                Intent(this,HomeActivity::class.java).also {
+                Intent(this, HomeActivity::class.java).also {
                     it.flags =  Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(it)
                 }

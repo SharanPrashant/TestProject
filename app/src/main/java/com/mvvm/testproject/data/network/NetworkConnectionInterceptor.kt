@@ -25,12 +25,12 @@ class NetworkConnectionInterceptor(
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun isInternetAvailable() : Boolean {
-
+        var result = false
         var connectivityManager =
             applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         connectivityManager.activeNetwork.also {
-           return it!= null && isInternetAvailable()
+           return it!= null
         }
     }
 }

@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mvvm.testproject.R
 import com.mvvm.testproject.data.db.entities.User
-import com.mvvm.testproject.databinding.ActivityLoginBinding
 import com.mvvm.testproject.databinding.ActivitySignupBinding
 import com.mvvm.testproject.ui.home.HomeActivity
 import com.mvvm.testproject.util.hide

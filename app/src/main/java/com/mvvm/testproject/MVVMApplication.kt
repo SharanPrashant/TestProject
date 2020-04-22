@@ -3,6 +3,7 @@ package com.mvvm.testproject
 import android.app.Application
 import com.mvvm.testproject.data.db.AppDatabase
 import com.mvvm.testproject.data.network.MyAPI
+
 import com.mvvm.testproject.data.network.NetworkConnectionInterceptor
 import com.mvvm.testproject.data.repositories.UserRepository
 import com.mvvm.testproject.databinding.ActivityLoginBinding.bind
@@ -22,7 +23,7 @@ class MVVMApplication : Application(), KodeinAware{
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { MyAPI(instance()) }
         bind() from singleton { AppDatabase(instance()) }
-        bind() from singleton { UserRepository(instance(),instance()) }
+        bind() from singleton { UserRepository(instance(), instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
     }
 }

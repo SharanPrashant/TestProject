@@ -12,26 +12,28 @@ import retrofit2.Call
 import retrofit2.Response
 import javax.security.auth.callback.Callback
 
- class UserRepository (
+class UserRepository(
     private val api: MyAPI,
-    private val db : AppDatabase
-)
-    : SafeApiRequest() {
+    private val db: AppDatabase
+) : SafeApiRequest() {
 
-    suspend fun userLogin(email : String, password : String) : AuthResponse { //LiveData<String> //Response<AuthResponse>
-        return apiRequest {
-            api.userLogin(email, password)
-        }
+    suspend fun userLogin(email: String, password: String): AuthResponse {
+        return apiRequest { api.userLogin(email, password) }
     }
 
-     suspend fun userSignup(name: String,email: String,password: String) : AuthResponse {
-         return apiRequest{
-             api.userSignup(name, email, password)
-         }
-     }
-     suspend fun saveUser(user: User) = db.getUserDao().upsert(user)
+    suspend fun userSignup(
+        name: String,
+        email: String,
+        password: String
+    ) : AuthResponse {
+        return apiRequest{ api.userSignup(name, email, password)}
+    }
 
-     fun getUser() = db.getUserDao().getUser()
+    suspend fun saveUser(user: User) = db.getUserDao().upsert(user)
+
+    fun getUser() = db.getUserDao().getUser()
+
+}
         //return MyAPI().userLogin(email,password)
         /*val loginResponse = MutableLiveData<String>()
 
@@ -58,4 +60,3 @@ import javax.security.auth.callback.Callback
         return loginResponse*/
 
 
-}
